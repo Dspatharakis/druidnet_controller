@@ -14,7 +14,7 @@ def create_db():
 
 @cli.command("seed_db")
 def seed_db():
-    db.session.add(User(req_rate=5))
+    db.session.add(User(req_rate=2))
     db.session.commit()
 
 if __name__ == "__main__":

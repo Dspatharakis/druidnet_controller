@@ -23,9 +23,25 @@ services:
       - POSTGRES_USER=hello_flask
       - POSTGRES_PASSWORD=hello_flask
       - POSTGRES_DB=hello_flask_dev
-  worker:
+  red_worker:
     build: .
-    command: celery worker --app=project.tasks.celery --loglevel=info --logfile=project/logs/celery.log
+    command: celery worker -Q red --app=project.tasks.celery -c=10 --loglevel=info --logfile=project/logs/celery.log -n red_worker
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - FLASK_DEBUG=1
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+    depends_on:
+      - web
+      - db
+      - redis 
+
+  green_worker:
+    build: .
+    command: celery worker -Q green --app=project.tasks.celery -c=10 --loglevel=info --logfile=project/logs/celery.log -n green_worker
     volumes:
       - .:/usr/src/app
     environment:
@@ -39,6 +55,22 @@ services:
       - db
       - redis
   
+  beat_worker:
+    build: .
+    command: celery worker -Q celery_periodic --app=project.tasks.celery --loglevel=info --logfile=project/logs/celery.log  
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - FLASK_DEBUG=1
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+    depends_on:
+      - web
+      - db
+      - redis
+
   celery_beat:
     build: .
     command: celery -A project.celery beat -l info
@@ -66,11 +98,12 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
-
     depends_on:
       - web
       - redis
-      - worker
+      - beat_worker
+      - green_worker
+      - red_worker
 
   redis:
     image: redis:6-alpine

@@ -4,6 +4,7 @@ from celery.result import AsyncResult
 from flask import render_template, Blueprint, jsonify, request
 from project import app, db
 from project.models import User 
+import random 
 #from project.tasks import AddTask
 
 main_blueprint = Blueprint("main", __name__,)
@@ -20,9 +21,14 @@ def home():
 def run_task():
     content = request.json
     task_type = content["type"]
-    from project.tasks import AddTask
-    task = AddTask.create_task.delay(int(task_type))
-    return jsonify({"task_id": task.id}), 202
+    from project.tasks import AddTask , AddTask2
+    k = random.randrange(0,10)
+    if int(task_type)== 1:
+        task = AddTask.create_task_red.delay(int(task_type))
+    else: 
+        task = AddTask2.create_task_green.delay(int(task_type))
+    print (k)
+    return jsonify({"task_id": task.id,"worker": k}), 202
 
 
 @main_blueprint.route("/tasks/<task_id>", methods=["GET"])
