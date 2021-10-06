@@ -13,7 +13,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERYBEAT_SCHEDULE = {
     'test-celery': {
         'task': 'project.tasks.update_per_interval',
-        'schedule': 30.0,
+        'schedule': 60.0,
         'options': {'queue' : 'celery_periodic'},
         #'args': (16, 16)
     }

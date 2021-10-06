@@ -1,6 +1,6 @@
 from flask.cli import FlaskGroup
 from project import app
-from project.models import User
+from project.models import Rate
 
 cli = FlaskGroup(app)
 
@@ -14,7 +14,7 @@ def create_db():
 
 @cli.command("seed_db")
 def seed_db():
-    db.session.add(User(req_rate=2))
+    db.session.add(Rate(req_rate_app1=2,req_rate_app2=1))
     db.session.commit()
 
 if __name__ == "__main__":
