@@ -8,3 +8,4 @@ Flask-SQLAlchemy==2.5.1
 psycopg2-binary==2.8.6
 Flask-Migrate==3.1.0
 requests==2.26.0
+prometheus-flask-exporter==0.18.3

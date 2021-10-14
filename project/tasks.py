@@ -1,70 +1,28 @@
-import time
-import logging
+import os
 import celery
-import sqlite3
+import requests
 from project import app, db
-from celery.app.task import Task
-from project.models import User 
+from project.models import Rate 
 
-
-logger = logging.getLogger(__name__)
-
-# import os 
-# from celery import Celery
-
-
-# celery = Celery(__name__)
-# celery.conf.broker_url = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379")
-# celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND", "redis://localhost:6379")
-
-class MyCoolTask(celery.Task):
-
-    def __call__(self, *args, **kwargs):
-        """In celery task this function call the run method, here you can
-        set some environment variable before the run of the task"""
-        logger.info("Starting to run")
-        return self.run(*args, **kwargs)
-
-    def after_return(self, status, retval, task_id, args, kwargs, einfo):
-        #exit point of the task whatever is the state
-        logger.info("Ending run")
-        pass
-
-class AddTask(MyCoolTask):
-    with app.app_context():
-        try: 
-            data = User.query.first()
-            rate = data.req_rate
-            print (rate)
-        except sqlite3.OperationalError:
-            print ("error")
-    Task.rate_limit=''+str(rate)+'/m'
-
-    @celery.task(name="create_task_red", queue="red")
-    def create_task_red(task_type):
-
-        time.sleep(int(task_type) * 10)
-        return True
+@celery.task(name="create_task_red", queue="red")
+def create_task_red():
+    result =  requests.post("http://"+os.environ.get("APP1_IP")) #"http://app1:5000/", timeout=45)
+    return True
     
-class AddTask2(MyCoolTask):
-    with app.app_context():
-        try: 
-            data = User.query.first()
-            rate = data.req_rate
-            print (rate)
-        except sqlite3.OperationalError:
-            print ("error")
-    Task.rate_limit=''+str(rate)+'/m'
-    @celery.task(name="create_task_green", queue="green")
-    def create_task_green(task_type):
-
-        time.sleep(int(task_type) * 10)
-        return True
-
+@celery.task(name="create_task_green", queue="green")
+def create_task_green():
+    print (os.environ.get("APP2_IP"))
+    result =  requests.post("http://"+ os.environ.get("APP2_IP")) #"http://app2:5000/", timeout=45)
+    return True
 
 @celery.task(queue='celery_periodic')
 def update_per_interval():
-    data = User.query.first()
-    rate = data.req_rate
-    data.req_rate = rate + 2  
+    data = Rate.query.first()
+    data.req_rate_app1 = data.req_rate_app1 + 0
+    data.req_rate_app2 = data.req_rate_app2 + 0 
+    print ("Request Rate for App1: ", data.req_rate_app1, " Request Rate for App2: ",data.req_rate_app2)
     db.session.commit()
+
+    from project import celery
+    celery.control.rate_limit('create_task_red', str(data.req_rate_app1)+"/m")
+    celery.control.rate_limit('create_task_green', str(data.req_rate_app2)+"/m")

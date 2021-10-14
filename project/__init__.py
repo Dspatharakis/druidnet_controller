@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from celery import Celery
-from flask_migrate import Migrate
+#from flask_migrate import Migrate
 import celery_config
 
 
@@ -29,6 +29,17 @@ def make_celery(app):
     celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND", "redis://localhost:6379")
 
     celery.conf.update(app.config)
+    celery.conf.update(
+    task_annotations={
+        'create_task_green': {
+            'rate_limit': '2/m'  # Default is 10 per second
+        },
+         'create_task_red': {
+            'rate_limit': '2/m'  # Default is 10 per second
+        }
+    },
+    )
+
     celery.config_from_object(celery_config)
 
     class ContextTask(celery.Task):
