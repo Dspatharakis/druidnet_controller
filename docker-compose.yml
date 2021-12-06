@@ -7,12 +7,11 @@ services:
     container_name: app1
     ports:
       - 6004:5000
-    command: python manage_object.py run -h 0.0.0.0
+    command: python manage_object.py run -h 0.0.0.0 --no-debugger
     volumes:
       - .:/usr/src/app
     environment:
       - FLASK_APP=object_repo/__init__.py
-      - FLASK_DEBUG=1
     depends_on:
       - web
   app2:
@@ -21,12 +20,11 @@ services:
     container_name: app2
     ports:
       - 6005:5000
-    command: python manage_object.py run -h 0.0.0.0
+    command: python manage_object.py run -h 0.0.0.0 --no-debugger
     volumes:
       - .:/usr/src/app
     environment:
       - FLASK_APP=object_repo/__init__.py
-      - FLASK_DEBUG=1
     depends_on:
       - web
   web:
@@ -57,7 +55,6 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      - FLASK_DEBUG=1
       - APP_SETTINGS=project.config.DevelopmentConfig
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
@@ -76,7 +73,6 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      - FLASK_DEBUG=1
       - APP_SETTINGS=project.config.DevelopmentConfig
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
@@ -95,7 +91,6 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      - FLASK_DEBUG=1
       - APP_SETTINGS=project.config.DevelopmentConfig
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
@@ -111,7 +106,6 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      - FLASK_DEBUG=1
       - APP_SETTINGS=project.config.DevelopmentConfig
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
@@ -127,7 +121,6 @@ services:
     ports:
       - 5556:5555
     environment:
-      - FLASK_DEBUG=1
       - APP_SETTINGS=project.config.DevelopmentConfig
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0

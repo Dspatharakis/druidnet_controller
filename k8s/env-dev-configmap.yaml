@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  APP_SETTINGS: project.server.config.DevelopmentConfig
+  APP1_IP: app1://app1:5000/
+  APP2_IP: app2://app2:5000/
+  CELERY_BROKER_URL: redis://redis:6379/0
+  CELERY_RESULT_BACKEND: redis://redis:6379/0
+  DATABASE: postgres
+  DATABASE_URL: postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+  FLASK_APP: project/__init__.py
+  POSTGRES_DB: hello_flask_dev
+  POSTGRES_PASSWORD: hello_flask
+  POSTGRES_USER: hello_flask
+  SQL_HOST: db
+  SQL_PORT: "5432"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: beat-worker-env-dev
+  name: env-dev

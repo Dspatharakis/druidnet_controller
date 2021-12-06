@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.24.0 (4a2a0458)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dashboard
+  name: dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: dashboard
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: dashboard
+    spec:
+      containers:
+        - args:
+            - flower
+            - --app=project.tasks.celery
+            - --port=5555
+            - --broker=redis://redis:6379/0
+          env:
+            - name: APP1_IP
+              valueFrom:
+                configMapKeyRef:
+                  key: APP1_IP
+                  name: env-dev
+            - name: APP2_IP
+              valueFrom:
+                configMapKeyRef:
+                  key: APP2_IP
+                  name: env-dev
+            - name: APP_SETTINGS
+              valueFrom:
+                configMapKeyRef:
+                  key: APP_SETTINGS
+                  name: env-dev
+            - name: CELERY_BROKER_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: CELERY_BROKER_URL
+                  name: env-dev
+            - name: CELERY_RESULT_BACKEND
+              valueFrom:
+                configMapKeyRef:
+                  key: CELERY_RESULT_BACKEND
+                  name: env-dev
+            - name: DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE
+                  name: env-dev
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE_URL
+                  name: env-dev
+            - name: FLASK_APP
+              valueFrom:
+                configMapKeyRef:
+                  key: FLASK_APP
+                  name: env-dev
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_DB
+                  name: env-dev
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: env-dev
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: env-dev
+            - name: SQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: SQL_HOST
+                  name: env-dev
+            - name: SQL_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: SQL_PORT
+                  name: env-dev
+          image: dspatharakis/controller_druidnet:dashboard
+          name: dashboard
+          ports:
+            - containerPort: 5555
+          resources: {}
+      restartPolicy: Always
+status: {}

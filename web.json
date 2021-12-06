@@ -1,0 +1,63 @@
+local kp = (import 'kube-prometheus/main.libsonnet') +
+   (import 'kube-prometheus/addons/node-ports.libsonnet') +
+  // (import 'kube-prometheus/addons/static-etcd.libsonnet') +
+   (import 'kube-prometheus/addons/custom-metrics.libsonnet') +
+  // (import 'kube-prometheus/addons/external-metrics.libsonnet') +
+ {
+  values+:: {
+    common+: {
+      namespace: 'monitoring',
+    },
+  },
+  exampleApplication: {
+    prometheusRuleExample: {
+      apiVersion: 'monitoring.coreos.com/v1',
+      kind: 'PrometheusRule',
+      metadata: {
+        name: 'druidnet-rule',
+        namespace: $.values.common.namespace,
+      },
+      spec: {
+        groups: [
+          {
+            name: 'druidnet_rules',
+	    interval: '30s',
+            rules: [
+              {
+                record: 'edge_server_request_rate_for_30',
+                expr: 'rate(flask_http_request_total{service="web"} [30s])',
+              },
+              {
+                record: 'edge_server_art_for_30',
+                expr: 'rate(flask_http_request_duration_seconds_sum{service="web"} [30s]) / rate(flask_http_request_duration_seconds_count{service="web"} [30s])
+                ',
+              },
+              {
+                record: 'edge_server_cpu_for_60',
+                expr: 'rate(container_cpu_usage_seconds_total{pod=~"web.*", container="web"}[60s])',
+              },
+              {
+                record: 'edge_server_memory',
+                expr: 'container_memory_working_set_bytes{pod=~"web.*", container="web"}',
+              },
+              {
+                record: 'edge_server_pod_count',
+                expr: 'count(count by (pod)(flask_http_request_total{pod=~"web.*", container="web"}))',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+};
+
+{ ['00namespace-' + name]: kp.kubePrometheus[name] for name in std.objectFields(kp.kubePrometheus) } +
+{ ['0prometheus-operator-' + name]: kp.prometheusOperator[name] for name in std.objectFields(kp.prometheusOperator) } +
+{ ['node-exporter-' + name]: kp.nodeExporter[name] for name in std.objectFields(kp.nodeExporter) } +
+{ ['kube-state-metrics-' + name]: kp.kubeStateMetrics[name] for name in std.objectFields(kp.kubeStateMetrics) } +
+{ ['alertmanager-' + name]: kp.alertmanager[name] for name in std.objectFields(kp.alertmanager) } +
+{ ['prometheus-' + name]: kp.prometheus[name] for name in std.objectFields(kp.prometheus) } +
+{ ['prometheus-adapter-' + name]: kp.prometheusAdapter[name] for name in std.objectFields(kp.prometheusAdapter) } +
+{ ['grafana-' + name]: kp.grafana[name] for name in std.objectFields(kp.grafana) } +
+{ ['example-application-' + name]: kp.exampleApplication[name] for name in std.objectFields(kp.exampleApplication) }

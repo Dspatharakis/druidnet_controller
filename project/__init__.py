@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from celery import Celery
 #from flask_migrate import Migrate
 import celery_config
+import prometheus_flask_exporter
 
 
 # instantiate the app
@@ -20,6 +21,7 @@ db = SQLAlchemy(app)
 # register blueprints
 from project.views import main_blueprint
 app.register_blueprint(main_blueprint)
+prometheus_flask_exporter.PrometheusMetrics(app)
 
 def make_celery(app):
     celery = Celery(
@@ -32,10 +34,10 @@ def make_celery(app):
     celery.conf.update(
     task_annotations={
         'create_task_green': {
-            'rate_limit': '2/m'  # Default is 10 per second
+            'rate_limit': '2/m'  # Default is 2 per minute
         },
          'create_task_red': {
-            'rate_limit': '2/m'  # Default is 10 per second
+            'rate_limit': '2/m'  # Default is 2 per minute
         }
     },
     )

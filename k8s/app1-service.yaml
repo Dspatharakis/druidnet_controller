@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1
+  labels:
+    app: app1
+spec:
+  ports:
+  - name: app1-port
+    port: 6004
+    nodePort: 30801
+    targetPort: 5000
+  selector:
+    app: app1
+  type: NodePort
+---
+kind: ServiceMonitor
+apiVersion: monitoring.coreos.com/v1
+metadata:
+  name: app1
+  labels:
+    app: app1
+spec:
+  selector:
+    matchLabels:
+      app: app1
+  endpoints:
+  - port: app1-port
+    interval: 1s
+
+

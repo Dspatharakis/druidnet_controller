@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: edge-server-rule
+  namespace: monitoring
+spec:
+  groups:
+  - interval: 30s
+    name: edge-server_rules
+    rules:
+    - expr: rate(flask_http_request_total{service="edge-server-cv"} [30s])
+      record: edge_server_request_rate_for_30
+    - expr: "rate(flask_http_request_duration_seconds_sum{service=\"edge-server-cv\"} [30s]) / rate(flask_http_request_duration_seconds_count{service=\"edge-server-cv\"} [30s])\n                "
+      record: edge_server_art_for_30
+    - expr: rate(container_cpu_usage_seconds_total{pod=~"edge-server-cv.*", container="edge-server-cv"}[60s])
+      record: edge_server_cpu_for_60
+    - expr: container_memory_working_set_bytes{pod=~"edge-server-cv.*", container="edge-server-cv"}
+      record: edge_server_memory
+    - expr: count(count by (pod)(flask_http_request_total{pod=~"edge-server-cv.*", container="edge-server-cv"}))
+      record: edge_server_pod_count
+

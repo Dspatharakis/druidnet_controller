@@ -4,10 +4,8 @@ from celery.result import AsyncResult
 from flask import render_template, Blueprint, jsonify, request
 from project import app, db
 from project.models import Rate 
-import prometheus_flask_exporter
 
 #from project.tasks import AddTask
-prometheus_flask_exporter.PrometheusMetrics(app)
 main_blueprint = Blueprint("main", __name__,)
 
 
@@ -23,15 +21,10 @@ def run_task():
     content = request.json
     task_type = content["type"]
 
-    # data = Rate.query.first()
-    # rate_app_1 = data.req_rate_app1
-    # rate_app_2 = data.req_rate_app2
     from project.tasks import create_task_green,create_task_red
-    # print ("Request Rate for App1: ", rate_app_1, " Request Rate for App2: ",rate_app_2)
-
-    if int(task_type)== 1:
+    if int(task_type)== 1:   #1 = red
         task = create_task_red.delay()
-    else:
+    else:  # 2 = green
         task = create_task_green.delay()
     return jsonify({"task_id": task.id,"worker": task_type}), 202
 

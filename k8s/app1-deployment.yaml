@@ -1,0 +1,34 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: app1
+  labels:
+    app: app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+        - args:
+            - python
+            - manage_object.py
+            - run
+            - -h
+            - 0.0.0.0
+            - --no-debugger
+          env:
+            - name: FLASK_APP
+              value: object_repo/__init__.py
+          image: dspatharakis/controller_druidnet:app1
+          name: app1
+          ports:
+            - containerPort: 5000
+          resources: {}
+      restartPolicy: Always
+status: {}
