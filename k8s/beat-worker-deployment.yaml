@@ -26,10 +26,11 @@ spec:
       containers:
         - args:
             - celery
+            - -A 
+            - project.tasks.celery
             - worker
             - -Q
             - celery_periodic
-            - --app=project.tasks.celery
             - --loglevel=info
             - --logfile=project/logs/celery.log
           env:

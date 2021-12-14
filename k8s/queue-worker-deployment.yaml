@@ -1,27 +1,41 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dashboard
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.24.0 (4a2a0458)
+  creationTimestamp: null
   labels:
-    app: dashboard
+    io.kompose.service: queue-worker
+  name: queue-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dashboard
+      io.kompose.service: queue-worker
+  strategy: {}
   template:
     metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
       labels:
-        app: dashboard
+        io.kompose.service: queue-worker
     spec:
       containers:
         - args:
-            - celery 
-            - flower
-            - -A
-            - project.tasks.celery
-            - --port=5555
-            - --broker=redis://redis:6379/0
+            - celery
+            - -A 
+            - project.tasks.celery 
+            - worker
+            - -Q
+            - queue
+            - -c 1
+            - --loglevel=info
+            - --logfile=project/logs/celery.log
+            - -n
+            - queue_worker
           env:
             - name: APP1_IP
               valueFrom:
@@ -88,10 +102,8 @@ spec:
                 configMapKeyRef:
                   key: SQL_PORT
                   name: env-dev
-          image: dspatharakis/controller_druidnet:dashboard
-          name: dashboard
-          ports:
-            - containerPort: 5555
+          image: dspatharakis/controller_druidnet:queue_worker
+          name: queue-worker
           resources: {}
       restartPolicy: Always
 status: {}

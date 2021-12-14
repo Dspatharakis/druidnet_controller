@@ -1,6 +1,5 @@
 from logging import log
 import os
-
 import requests
 import random
 from project import app, db, celery
