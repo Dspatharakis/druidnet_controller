@@ -52,7 +52,7 @@ services:
       - POSTGRES_DB=hello_flask_dev
   queue_worker:
     build: .
-    command: celery worker -Q queue --app=project.tasks.celery -c=1 --loglevel=info --logfile=project/logs/celery.log -n queue_worker
+    command: celery -A project.tasks.celery worker -Q queue  -c 1 --loglevel=info --logfile=project/logs/celery.log -n queue_worker
     volumes:
       - .:/usr/src/app
     environment:
@@ -70,7 +70,7 @@ services:
 
   red_worker:
     build: .
-    command: celery worker -Q red --app=project.tasks.celery -c=1 --loglevel=info --logfile=project/logs/celery.log -n red_worker
+    command: celery -A project.tasks.celery worker -Q red  -c 1 --loglevel=info --logfile=project/logs/celery.log -n red_worker
     volumes:
       - .:/usr/src/app
     environment:
@@ -88,7 +88,7 @@ services:
 
   green_worker:
     build: .
-    command: celery worker -Q green --app=project.tasks.celery -c=1 --loglevel=info --logfile=project/logs/celery.log -n green_worker
+    command: celery -A project.celery worker -Q green -c 1 --loglevel=info --logfile=project/logs/celery.log -n green_worker
     volumes:
       - .:/usr/src/app
     environment:
@@ -106,7 +106,7 @@ services:
   
   beat_worker:
     build: .
-    command: celery worker -Q celery_periodic --app=project.tasks.celery --loglevel=info --logfile=project/logs/celery.log  
+    command: celery -A project.tasks.celery worker -Q celery_periodic  --loglevel=info --logfile=project/logs/celery.log  
     volumes:
       - .:/usr/src/app
     environment:
@@ -136,7 +136,7 @@ services:
 
   dashboard:
     build: .
-    command:  flower --app=project.tasks.celery --port=5555 --broker=redis://redis:6379/0
+    command:  flower -A project.celery --port=5555 --broker=redis://redis:6379/0
     ports:
       - 5556:5555
     environment:

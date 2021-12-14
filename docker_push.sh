@@ -21,3 +21,5 @@ docker tag druidnet_green_worker dspatharakis/controller_druidnet:green_worker
 docker push dspatharakis/controller_druidnet:green_worker
 docker tag druidnet_red_worker dspatharakis/controller_druidnet:red_worker
 docker push dspatharakis/controller_druidnet:red_worker
+docker tag druidnet_red_worker dspatharakis/controller_druidnet:queue_worker
+docker push dspatharakis/controller_druidnet:queue_worker

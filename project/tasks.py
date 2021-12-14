@@ -1,9 +1,9 @@
 from logging import log
 import os
-import celery
+
 import requests
 import random
-from project import app, db
+from project import app, db, celery
 from project.models import Rate 
 from psycopg2 import InternalError
 from celery.utils.log import get_task_logger
@@ -12,12 +12,12 @@ logger = get_task_logger(__name__)
 
 @celery.task(name="create_task_red", queue="red")
 def create_task_red(): # kubernetes access with nodeport and exposed port
-    result =  requests.post("http://app1:5000") #"http://app1:6004/", timeout=45)
+    result =  requests.post("http://app1:6004/") #"http://app1:6004/", timeout=45)
     return True
     
 @celery.task(name="create_task_green", queue="green")
 def create_task_green():
-    result =  requests.post("http://app2:5000") #"http://app2:6005/", timeout=45)
+    result =  requests.post("http://app2:6005/") #"http://app2:6005/", timeout=45)
     return True
 
 @celery.task(name="create_task_queue", queue="queue")
