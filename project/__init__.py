@@ -34,10 +34,13 @@ def make_celery(app):
     celery.conf.update(
     task_annotations={
         'create_task_green': {
-            'rate_limit': '2/m'  # Default is 2 per minute
+            'rate_limit': '1/m'  # Default is 2 per minute
         },
          'create_task_red': {
             'rate_limit': '2/m'  # Default is 2 per minute
+        },
+          'create_task_queue': {
+            'rate_limit': '3/m'  # Default is 2 per minute
         }
     },
     )

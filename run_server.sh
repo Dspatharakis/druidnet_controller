@@ -14,6 +14,7 @@ fi
 sleep 1
 
 set -m
+python manage.py db upgrade
 python manage.py run -h 0.0.0.0 --no-debugger --with-threads &
 python manage.py create_db 
 python manage.py seed_db 

@@ -1,1 +1,0 @@
-# druidnet_controller

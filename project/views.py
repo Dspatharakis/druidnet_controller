@@ -5,14 +5,14 @@ from flask import render_template, Blueprint, jsonify, request
 from project import app, db
 from project.models import Rate 
 
+
 #from project.tasks import AddTask
 main_blueprint = Blueprint("main", __name__,)
 
 
+
 @main_blueprint.route("/", methods=["GET"])
 def home():
-    data = Rate.query.first()# db.session.query(Rate).first() 
-    print (data)
     return render_template("main/home.html")
 
 
@@ -20,12 +20,8 @@ def home():
 def run_task():
     content = request.json
     task_type = content["type"]
-
-    from project.tasks import create_task_green,create_task_red
-    if int(task_type)== 1:   #1 = red
-        task = create_task_red.delay()
-    else:  # 2 = green
-        task = create_task_green.delay()
+    from project.tasks import create_task_queue
+    task = create_task_queue.delay(task_type)
     return jsonify({"task_id": task.id,"worker": task_type}), 202
 
 

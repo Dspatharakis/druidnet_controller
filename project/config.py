@@ -7,6 +7,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     TESTING = False
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite://")
+    REDIS_URL = "redis://redis:6379"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig():

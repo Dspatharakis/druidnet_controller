@@ -1,5 +1,6 @@
 version: '3.8'
 
+
 services:
   app1:
     build: .
@@ -49,6 +50,24 @@ services:
       - POSTGRES_USER=hello_flask
       - POSTGRES_PASSWORD=hello_flask
       - POSTGRES_DB=hello_flask_dev
+  queue_worker:
+    build: .
+    command: celery worker -Q queue --app=project.tasks.celery -c=1 --loglevel=info --logfile=project/logs/celery.log -n queue_worker
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - APP1_IP=app1:5000/
+      - APP2_IP=app2:5000/
+      - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+    depends_on:
+      - web
+      - app1
+      - db
+      - redis 
+
   red_worker:
     build: .
     command: celery worker -Q red --app=project.tasks.celery -c=1 --loglevel=info --logfile=project/logs/celery.log -n red_worker
