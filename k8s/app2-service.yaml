@@ -9,7 +9,7 @@ spec:
   - name: app2-port
     port: 6005
     nodePort: 30802
-    targetPort: 5000
+    targetPort: 8000
   selector:
     app: app2
   type: NodePort

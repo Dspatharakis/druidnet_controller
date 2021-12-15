@@ -15,20 +15,41 @@ spec:
         app: app2
     spec:
       containers:
-        - args:
-            - python
-            - manage_object.py
-            - run
-            - -h
-            - 0.0.0.0
-            - --no-debugger
-          env:
-            - name: FLASK_APP
-              value: object_repo/__init__.py
-          image: dspatharakis/controller_druidnet:app2
-          name: app2
-          ports:
-            - containerPort: 5000
-          resources: {}
-      restartPolicy: Always
-status: {}
+      - image: dspatharakis/controller_druidnet:edge-server
+        name: app2 #edge-server-cv
+        resources:
+          limits:
+            cpu: "4000m"
+            memory: "6Gi"
+          requests:
+            cpu: "250m"
+            memory: "2Gi"
+        env:
+        - name: EDGE_SERVER_PORT
+          value: '8000'
+        - name: CPU_LIMIT
+          value: '4'
+        - name: PROMETHEUS_MULTIPROC_DIR
+          value: '/tmp'
+        ports:
+        - name: es-port
+          containerPort: 8000
+#     spec:
+#       containers:
+#         - args:
+#             - python
+#             - manage_object.py
+#             - run
+#             - -h
+#             - 0.0.0.0
+#             - --no-debugger
+#           env:
+#             - name: FLASK_APP
+#               value: object_repo/__init__.py
+#           image: dspatharakis/controller_druidnet:app2
+#           name: app2
+#           ports:
+#             - containerPort: 5000
+#           resources: {}
+#       restartPolicy: Always
+# status: {}

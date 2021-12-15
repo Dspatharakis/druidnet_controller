@@ -31,7 +31,6 @@ spec:
             - worker
             - -Q
             - green
-            - -c 1
             - --loglevel=info
             - --logfile=project/logs/celery.log
             - -n
