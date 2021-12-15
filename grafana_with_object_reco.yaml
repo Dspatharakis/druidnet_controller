@@ -8,6 +8,12 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
@@ -15,7 +21,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 19,
+  "id": 25,
   "links": [],
   "panels": [
     {
@@ -25,12 +31,14 @@
       "dashes": false,
       "datasource": "prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 2,
       "interval": "1s",
       "legend": {
@@ -48,8 +56,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "8.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -59,16 +70,20 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum (rate(flask_http_request_total{service=\"web\"} [10s]))",
+          "exemplar": true,
+          "expr": "sum (rate(flask_http_request_total{service=~\".*app.*\"} [10s]))",
           "format": "time_series",
           "instant": false,
+          "interval": "1s",
           "intervalFactor": 1,
           "legendFormat": "Average",
           "refId": "A"
         },
         {
-          "expr": "sum by (pod) (\n  sum by (pod, status) (\n    rate(flask_http_request_total{service=\"web\"} [10s])\n  )\n)",
+          "exemplar": true,
+          "expr": "sum by (pod) (\n  sum by (pod, status) (\n    rate(flask_http_request_total{service=~\".*app.*\"} [10s])\n  )\n)",
           "format": "time_series",
+          "interval": "1s",
           "intervalFactor": 1,
           "legendFormat": "{{pod}}",
           "refId": "B"
@@ -94,6 +109,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:65",
           "format": "reqps",
           "label": null,
           "logBase": 1,
@@ -102,6 +118,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:66",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -122,12 +139,14 @@
       "dashes": false,
       "datasource": "prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 12,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 4,
       "interval": "1s",
       "legend": {
@@ -143,8 +162,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "8.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -154,16 +176,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_sum{service=\"web\"} [10s])\n    ) /\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_count{service=\"web\"} [10s])\n    )\n)",
+          "exemplar": true,
+          "expr": "avg(\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_sum{service=~\"app.*\"} [30s])\n    ) /\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_count{service=~\"app.*\"} [30s])\n    )\n)",
           "format": "time_series",
-          "interval": "",
+          "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "Average",
           "refId": "A"
         },
         {
-          "expr": "avg by (pod) (\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_sum{service=\"web\"} [10s])\n    ) /\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_count{service=\"web\"} [10s])\n    )\n)",
+          "exemplar": true,
+          "expr": "avg by (pod) (\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_sum{service=~\"app.*\"} [30s])\n    ) /\n    sum by (pod) (\n      rate(flask_http_request_duration_seconds_count{service=~\"app.*\"} [30s])\n    )\n)",
           "format": "time_series",
+          "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "{{pod}} average",
           "refId": "B"
@@ -189,6 +214,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:169",
           "format": "s",
           "label": null,
           "logBase": 1,
@@ -197,6 +223,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:170",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -217,12 +244,14 @@
       "dashes": false,
       "datasource": "prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 12,
         "x": 0,
         "y": 9
       },
+      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "avg": false,
@@ -237,8 +266,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "8.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -248,15 +280,20 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(\n  rate(container_cpu_usage_seconds_total{pod=~\"web-.*\"} [1m])\n)",
+          "exemplar": true,
+          "expr": "sum(rate(container_cpu_usage_seconds_total{container=~\"app.*\"}[1m])) by (pod_name, container_name) /\nsum(container_spec_cpu_quota{container=~\"app.*\"}/container_spec_cpu_period{container=~\"app.*\"}) by (pod_name, container_name)*100",
           "format": "time_series",
+          "instant": false,
+          "interval": "30s",
           "intervalFactor": 1,
-          "legendFormat": "Total",
+          "legendFormat": "{{pod}} Total",
           "refId": "A"
         },
         {
-          "expr": "sum by (pod) (\n  rate(container_cpu_usage_seconds_total{pod=~\"web-.*\"} [1m])\n)",
+          "exemplar": true,
+          "expr": "sum(rate(container_cpu_usage_seconds_total{container=~\"app.*\"}[1m])) by (pod_name, container_name) /\nsum(container_spec_cpu_quota{container=~\"app.*\"}/container_spec_cpu_period{container=~\"app.*\"}) by (pod_name, container_name)*100",
           "format": "time_series",
+          "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "{{pod}} cpu",
           "refId": "B"
@@ -266,7 +303,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU",
+      "title": "CPU Utilization % ",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -282,6 +319,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:381",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -290,6 +328,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:382",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -310,12 +349,111 @@
       "dashes": false,
       "datasource": "prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 12,
         "x": 12,
         "y": 9
       },
+      "hiddenSeries": false,
+      "id": 13,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "  rate(container_cpu_usage_seconds_total{ container=~\"app.*\"} [1m])",
+          "interval": "30",
+          "legendFormat": "",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU cores ",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:328",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:329",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
       "id": 8,
       "legend": {
         "avg": false,
@@ -330,8 +468,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "8.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -341,15 +482,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(container_memory_working_set_bytes{pod=~\"web-.*\"})",
+          "exemplar": true,
+          "expr": "sum(container_memory_working_set_bytes{pod=~\"app.*\"})",
           "format": "time_series",
+          "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "Total",
           "refId": "A"
         },
         {
-          "expr": "sum  by (pod) (container_memory_working_set_bytes{pod=~\"web-.*\"})",
+          "exemplar": true,
+          "expr": "sum  by (pod) (container_memory_working_set_bytes{pod=~\"app.*\"})",
           "format": "time_series",
+          "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "{{pod}}",
           "refId": "B"
@@ -375,6 +520,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:434",
           "format": "decbits",
           "label": null,
           "logBase": 1,
@@ -383,6 +529,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:435",
           "format": "bits",
           "label": null,
           "logBase": 1,
@@ -403,13 +550,15 @@
       "dashes": false,
       "datasource": "prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 19
       },
-      "id": 10,
+      "hiddenSeries": false,
+      "id": 11,
       "legend": {
         "avg": false,
         "current": false,
@@ -423,8 +572,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "8.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -434,8 +586,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "count(count by (pod) (flask_http_request_total{pod=~\"web-.*\"}))",
+          "exemplar": true,
+          "expr": "round(sum(increase(flask_http_request_total{service=~\"app.*\"} [30s])))",
           "format": "time_series",
+          "instant": false,
+          "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "Total",
           "refId": "A"
@@ -445,7 +600,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Number of web pods",
+      "title": "Total Number of Requests per Interval",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -461,6 +616,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:222",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -469,6 +625,102 @@
           "show": true
         },
         {
+          "$$hashKey": "object:223",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "count(count by (pod) (container_memory_usage_bytes{container=~\"app.*\"}))",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Total",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Number of edge-server-cv pods",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:275",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0.0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:276",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -484,7 +736,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 18,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -520,7 +772,7 @@
     ]
   },
   "timezone": "",
-  "title": "Web dashboard",
-  "uid": "ALn2W_xWkweb",
-  "version": 5
+  "title": "Edge server dashboard",
+  "uid": "j1bbN5tnz",
+  "version": 13
 }
