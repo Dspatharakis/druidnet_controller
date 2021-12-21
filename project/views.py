@@ -1,15 +1,16 @@
 # project/main/views.py
-import os
+import base64
 from celery.result import AsyncResult
 from flask import render_template, Blueprint, jsonify, request
-from project import app, db
-from project.models import Rate 
+from project import app, db, mongo_db
+from project.models import Rate, FileContent
+import time
+import json
+from bson import json_util
+from PIL import Image
+import tempfile
 
-
-#from project.tasks import AddTask
 main_blueprint = Blueprint("main", __name__,)
-
-
 
 @main_blueprint.route("/", methods=["GET"])
 def home():
@@ -18,12 +19,18 @@ def home():
 
 @main_blueprint.route("/tasks", methods=["POST"])
 def run_task():
-    content = request.json
-    task_type = content["type"]
+    start_time = time.time()
+    file = request.files['file']
+    userDoc =  FileContent().save()
+    userDoc.file.put(file)
+    userDoc.save()
+    print ("time: ", time.time() - start_time)
     from project.tasks import create_task_queue
-    task = create_task_queue.delay(task_type)
-    return jsonify({"task_id": task.id,"worker": task_type}), 202
-
+    id = json.loads(json_util.dumps(userDoc.id))
+    img_id = str(id.get('$oid'))
+    print (img_id)
+    task = create_task_queue.delay(img_id)
+    return jsonify({"task_id": id}), 202
 
 @main_blueprint.route("/tasks/<task_id>", methods=["GET"])
 def get_status(task_id):
@@ -37,17 +44,14 @@ def get_status(task_id):
 
 @main_blueprint.route("/renew_db", methods=["POST"])
 def renew_db():
-    request_data = request.get_json()
-    print (request_data)
-    req_rate_app1 = request_data['req_rate_app1']
-    req_rate_app2 = request_data['req_rate_app2']
-
-    data = Rate.query.first()
-    data.req_rate_app1 = req_rate_app1
-    data.req_rate_app2 = req_rate_app2
-    print ("Request Rate for App1: ", data.req_rate_app1, " Request Rate for App2: ",data.req_rate_app2)
-    db.session.commit()
     from project import celery
-    celery.control.rate_limit('create_task_red', str(data.req_rate_app1)+"/m")
-    celery.control.rate_limit('create_task_green', str(data.req_rate_app2)+"/m")
-    return jsonify(success=True)
+    client = celery.connection().channel().client
+    length = client.llen('queue')
+    data = Rate.query.first()
+    from project import rr_app1,rr_app2,qlen,time_of_experiment
+    rr_app1.set(data.req_rate_app1)
+    rr_app2.set(data.req_rate_app2)
+    qlen.set(length)
+    temp = int(time_of_experiment) + 1
+    time_of_experiment.set(temp)
+    return jsonify(success=True)  # maybe intentionally make this not to work! 

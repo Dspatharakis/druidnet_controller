@@ -1,5 +1,5 @@
 import os
-
+from project import app
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -9,6 +9,15 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite://")
     REDIS_URL = "redis://redis:6379"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    app.config['MONGODB_SETTINGS'] = {
+    'db': 'flaskdb',
+    'host': 'mongodb',
+    # 'username': 'flaskdbuser',
+    # 'password': 'pass',
+    'port': 27017
+}
+
+
 
 class DevelopmentConfig():
     TESTING = False

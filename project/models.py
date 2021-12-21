@@ -1,4 +1,6 @@
-from project import db
+from project import db,mongo_db
+from bson.objectid import ObjectId
+
 
 #define db table
 class Rate(db.Model):
@@ -13,3 +15,18 @@ class Rate(db.Model):
         self.req_rate_app1 = req_rate_app1
         self.req_rate_app2 = req_rate_app2
         self.time_passed_since_last_event = time_passed_since_last_event
+
+# Picture table. By default the table name is filecontent
+class FileContent(mongo_db.Document):
+
+    """ 
+    The first time the app runs you need to create the table. In Python
+    terminal import db, Then run db.create_all()
+    """
+    """ ___tablename__ = 'yourchoice' """ # You can override the default table name
+
+    id = mongo_db.ObjectIdField(default=ObjectId, primary_key=True)
+    file = mongo_db.ImageField()
+    # def __repr__(self):
+    #     return f'Pic Name: {self.name} Data: {self.data}'
+

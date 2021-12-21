@@ -2,9 +2,10 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from celery import Celery
-#from flask_migrate import Migrate
 import celery_config
 import prometheus_flask_exporter
+from prometheus_flask_exporter.multiprocess import GunicornPrometheusMetrics
+from flask_mongoengine import MongoEngine
 
 
 # instantiate the app
@@ -15,13 +16,18 @@ app = Flask(
 )
 app.config.from_object("project.config.Config")
 db = SQLAlchemy(app)
-#migrate = Migrate(app, db)
-
+mongo_db = MongoEngine(app)
 
 # register blueprints
+metrics = GunicornPrometheusMetrics(app)
+metrics = prometheus_flask_exporter.PrometheusMetrics(app)
 from project.views import main_blueprint
 app.register_blueprint(main_blueprint)
-prometheus_flask_exporter.PrometheusMetrics(app)
+time_of_experiment = metrics.info('Time_of_Experiment', 'Time of experiment')
+time_of_experiment.set(0)
+rr_app1 = metrics.info('Request_Rate_App1', 'Request Rate for App1')
+rr_app2 = metrics.info('Request_Rate_App2', 'Request Rate for App2')
+qlen = metrics.info('Queue_current_size', 'Queue Current Size')
 
 def make_celery(app):
     celery = Celery(
@@ -34,13 +40,13 @@ def make_celery(app):
     celery.conf.update(
     task_annotations={
         'create_task_green': {
-            'rate_limit': '1/m'  # Default is 2 per minute
+            'rate_limit': '1/m'  # Default is 1 per minute
         },
          'create_task_red': {
             'rate_limit': '2/m'  # Default is 2 per minute
         },
           'create_task_queue': {
-            'rate_limit': '3/m'  # Default is 2 per minute
+            'rate_limit': '3/m'  # Default is 3 per minute
         }
     },
     )

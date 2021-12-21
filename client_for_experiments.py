@@ -7,37 +7,34 @@ import time
 import requests
 
 
-IP_ADDR = os.getenv('EDGE_SERVER_IP_ADDR', '10.233.96.9')
+IP_ADDR = os.getenv('EDGE_SERVER_IP_ADDR', '0.0.0.0')
 if IP_ADDR is None:
     sys.exit("Environmemnt variable 'EDGE_SERVER_IP_ADDR' is not set")
 
-PORT = os.getenv('EDGE_SERVER_PORT', '8000')
+PORT = os.getenv('EDGE_SERVER_PORT', '5004')
 if PORT is None:
     sys.exit("Environmemnt variable 'EDGE_SERVER_PORT' is not set")
 
-POST_URL = "http://%s:%s/" % (IP_ADDR, PORT)
+POST_URL = "http://%s:%s/tasks" % (IP_ADDR, PORT)
 
 IMAGES_PATH = os.getenv('IMAGES_PATH', './images/')
 
-# IMAGES = []
-# for (dirpath, dirnames, filenames) in os.walk(IMAGES_PATH):
-#     IMAGES.extend(filenames)
-#     break
-# print('Discovered images: {}'.format(IMAGES))
+IMAGES = []
+for (dirpath, dirnames, filenames) in os.walk(IMAGES_PATH):
+    IMAGES.extend(filenames)
+    break
+print('Discovered images: {}'.format(IMAGES))
 
 def post_once():
-    headers = {
-    'Content-Type': 'application/json',
-    }
-
-    data = '{"type": 1}'
-
-    # image = os.path.join(IMAGES_PATH, random.choice(IMAGES))
-    # print('Using image: {}'.format(image))
+    # headers = {
+    # 'Content-Type': 'application/json',
+    # }
+    # data = '{"type": 1}'
+    image = os.path.join(IMAGES_PATH, random.choice(IMAGES))
+    print('Using image: {}'.format(image))
     try:
-        response = requests.post('http://0.0.0.0:5004/tasks', headers=headers, data=data)
-
-        # requests.post(POST_URL, files={"file": open(image, "rb")})
+        # response = requests.post('http://0.0.0.0:5004/tasks', headers=headers, data=data)
+        requests.post(POST_URL, files={"file": open(image, "rb")})
     except requests.exceptions.ConnectionError as err:
         print('Error while trying to post once: {}'.format(err))
 

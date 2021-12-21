@@ -4,7 +4,7 @@ from project.models import Rate
 
 cli = FlaskGroup(app)
 
-from project import db
+from project import db, mongo_db
 
 @cli.command("create_db")
 def create_db():

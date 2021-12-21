@@ -101,6 +101,8 @@ spec:
                 configMapKeyRef:
                   key: SQL_PORT
                   name: env-dev
+            - name: PROMETHEUS_MULTIPROC_DIR
+              value: '/tmp'
           image: dspatharakis/controller_druidnet:queue_worker
           name: queue-worker
           resources: {}

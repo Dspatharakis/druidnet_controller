@@ -9,6 +9,8 @@ docker push dspatharakis/controller_druidnet:app2
 docker tag db dspatharakis/controller_druidnet:db
 docker tag postgres:13-alpine dspatharakis/controller_druidnet:db
 docker push dspatharakis/controller_druidnet:db
+docker tag mongo:4.0.8 dspatharakis/controller_druidnet:mongo_db
+docker push dspatharakis/controller_druidnet:mongo_db
 docker tag redis:6-alpine dspatharakis/controller_druidnet:redis
 docker push dspatharakis/controller_druidnet:redis
 docker tag druidnet_beat_worker dspatharakis/controller_druidnet:beat_worker

@@ -1,27 +1,18 @@
-apiVersion: apps/v1
+apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.24.0 (4a2a0458)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: beat-worker
   name: beat-worker
+  labels:
+    app: beat-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: beat-worker
-  strategy: {}
+      app: beat-worker
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.24.0 (4a2a0458)
-      creationTimestamp: null
       labels:
-        io.kompose.service: beat-worker
+        app: beat-worker
     spec:
       containers:
         - args:
@@ -99,6 +90,8 @@ spec:
                 configMapKeyRef:
                   key: SQL_PORT
                   name: env-dev
+            - name: PROMETHEUS_MULTIPROC_DIR
+              value: '/tmp'
           image: dspatharakis/controller_druidnet:beat_worker
           name: beat-worker
           resources: {}
