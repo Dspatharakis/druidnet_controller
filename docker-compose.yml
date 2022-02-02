@@ -82,7 +82,7 @@ services:
       - APP1_IP=app1:5000/
       - APP2_IP=app2:5000/
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
-      - PROMETHEUS_MULTIPROC_DIR='/tmp'
+      # - PROMETHEUS_MULTIPROC_DIR='/tmp'
     depends_on:
       - web
       - app1
@@ -102,7 +102,7 @@ services:
       - APP1_IP=app1:5000/
       - APP2_IP=app2:5000/
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
-      - PROMETHEUS_MULTIPROC_DIR='/tmp'
+      # - PROMETHEUS_MULTIPROC_DIR='/tmp'
     depends_on:
       - web
       - mongodb
@@ -120,7 +120,7 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
-      - PROMETHEUS_MULTIPROC_DIR='/tmp'
+      # - PROMETHEUS_MULTIPROC_DIR='/tmp'
     depends_on:
       - web
       - db
@@ -136,7 +136,7 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
-      - PROMETHEUS_MULTIPROC_DIR='/tmp'
+      # - PROMETHEUS_MULTIPROC_DIR='/tmp'
     depends_on:
       - web
       - redis

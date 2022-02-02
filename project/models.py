@@ -10,12 +10,14 @@ class Rate(db.Model):
     req_rate_app1 = db.Column(db.Integer, nullable=False)
     req_rate_app2 = db.Column(db.Integer, nullable=False)
     time_passed_since_last_event = db.Column(db.Float, nullable=False)
-
-    def __init__(self, req_rate_app1,req_rate_app2,time_passed_since_last_event):
+    time_of_experiment = db.Column(db.Float, nullable=False)
+    queue_size = db.Column(db.Float, nullable=False)
+    def __init__(self, req_rate_app1,req_rate_app2,time_passed_since_last_event,time_of_experiment,queue_size ):
         self.req_rate_app1 = req_rate_app1
         self.req_rate_app2 = req_rate_app2
         self.time_passed_since_last_event = time_passed_since_last_event
-
+        self.time_of_experiment  = time_of_experiment 
+        self.queue_size = queue_size
 # Picture table. By default the table name is filecontent
 class FileContent(mongo_db.Document):
 

@@ -23,11 +23,6 @@ metrics = GunicornPrometheusMetrics(app)
 metrics = prometheus_flask_exporter.PrometheusMetrics(app)
 from project.views import main_blueprint
 app.register_blueprint(main_blueprint)
-time_of_experiment = metrics.info('Time_of_Experiment', 'Time of experiment')
-time_of_experiment.set(0)
-rr_app1 = metrics.info('Request_Rate_App1', 'Request Rate for App1')
-rr_app2 = metrics.info('Request_Rate_App2', 'Request Rate for App2')
-qlen = metrics.info('Queue_current_size', 'Queue Current Size')
 
 def make_celery(app):
     celery = Celery(

@@ -77,8 +77,6 @@ def create_task_queue(img_id):
 
 @celery.task(queue='celery_periodic')
 def update_per_interval():
-    result =  requests.post("http://web:5004/renew_db") # web:5004
-    print (result)
     from project import celery
     client = celery.connection().channel().client
     length = client.llen('queue')
@@ -93,6 +91,8 @@ def update_per_interval():
         data.req_rate_app1 = 0.5 * data.req_rate_app1 + 2*(data.time_passed_since_last_event+time_passed)
         data.req_rate_app2 = 0.5 * data.req_rate_app2 + 3*(data.time_passed_since_last_event+time_passed)
         data.time_passed_since_last_event = data.time_passed_since_last_event + time_passed 
+        data.time_of_experiment = data.time_of_experiment + 1
+        data.queue_size = length
         db.session.commit()
         print ("Request Rate for App1: ", data.req_rate_app1, " Request Rate for App2: ",data.req_rate_app2)
         celery.control.rate_limit('create_task_red', str(data.req_rate_app1)+"/m")

@@ -7,8 +7,6 @@ from project.models import Rate, FileContent
 import time
 import json
 from bson import json_util
-from PIL import Image
-import tempfile
 
 main_blueprint = Blueprint("main", __name__,)
 
@@ -30,6 +28,8 @@ def run_task():
     img_id = str(id.get('$oid'))
     print (img_id)
     task = create_task_queue.delay(img_id)
+    while task.state not in ('SUCCESS', 'FAILURE'):
+        time.sleep(0.1)
     return jsonify({"task_id": id}), 202
 
 @main_blueprint.route("/tasks/<task_id>", methods=["GET"])
@@ -41,17 +41,3 @@ def get_status(task_id):
         "task_result": task_result.result
     }
     return jsonify(result), 200
-
-@main_blueprint.route("/renew_db", methods=["POST"])
-def renew_db():
-    from project import celery
-    client = celery.connection().channel().client
-    length = client.llen('queue')
-    data = Rate.query.first()
-    from project import rr_app1,rr_app2,qlen,time_of_experiment
-    rr_app1.set(data.req_rate_app1)
-    rr_app2.set(data.req_rate_app2)
-    qlen.set(length)
-    temp = int(time_of_experiment) + 1
-    time_of_experiment.set(temp)
-    return jsonify(success=True)  # maybe intentionally make this not to work! 

@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: aimd-rules
+  namespace: monitoring
+spec:
+  groups:
+  - interval: 30s
+    name: aimd-rules
+    rules:
+    - expr: 2*max(Request_Rate_App1) +sqrt(sum((flower_events_total{type="task-received",worker="celery@green_worker"}-flower_events_total{type="task-received",worker="celery@green_worker"} offset 15m)) - sum((flower_events_total{type="task-succeeded",worker="celery@green_worker"}-flower_events_total{type="task-succeeded",worker="celery@green_worker"} offset 15m))) 
+      record: g1
+    - expr: 3*max(Request_Rate_App2) +sqrt(sum((flower_events_total{type="task-received",worker="celery@red_worker"}-flower_events_total{type="task-received",worker="celery@red_worker"} offset 15m)) - sum(flower_events_total{type="task-succeeded",worker="celery@red_worker"}-flower_events_total{type="task-succeeded",worker="celery@red_worker"} offset 15m))
+      record: g2
+
+

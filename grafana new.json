@@ -82,8 +82,8 @@
         "x": 0,
         "y": 0
       },
-      "id": 17,
-      "interval": "0.001s",
+      "id": 19,
+      "interval": "1",
       "options": {
         "legend": {
           "calcs": [],
@@ -97,22 +97,23 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum((flower_events_total{type=\"task-received\",worker=\"celery@green_worker\"}-flower_events_total{type=\"task-received\",worker=\"celery@green_worker\"} offset 5m)) - sum((flower_events_total{type=\"task-succeeded\",worker=\"celery@green_worker\"}-flower_events_total{type=\"task-succeeded\",worker=\"celery@green_worker\"} offset 5m))",
-          "hide": false,
+          "expr": "2*sum(req_rate_app1) + sqrt(sum(flower_events_total{type=\"task-received\",worker=\"celery@green_worker\"})-sum(flower_events_total{type=\"task-succeeded\",worker=\"celery@green_worker\"})) ",
+          "instant": false,
           "interval": "1s",
-          "legendFormat": "not finished app2",
-          "refId": "F"
+          "legendFormat": "γ for app1",
+          "queryType": "randomWalk",
+          "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "sum((flower_events_total{type=\"task-received\",worker=\"celery@red_worker\"}-flower_events_total{type=\"task-received\",worker=\"celery@red_worker\"} offset 5m)) - sum(flower_events_total{type=\"task-succeeded\",worker=\"celery@red_worker\"}-flower_events_total{type=\"task-succeeded\",worker=\"celery@red_worker\"} offset 5m)\n",
+          "expr": "3*sum(req_rate_app2) + sqrt(sum(flower_events_total{type=\"task-received\",worker=\"celery@red_worker\"})-sum(flower_events_total{type=\"task-succeeded\",worker=\"celery@red_worker\"}))",
           "hide": false,
           "interval": "1s",
-          "legendFormat": "not finished app1",
-          "refId": "A"
+          "legendFormat": "γ for app2",
+          "refId": "B"
         }
       ],
-      "title": "Tasks Not Finished",
+      "title": "γ parameter",
       "type": "timeseries"
     },
     {
@@ -229,117 +230,95 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "prometheus",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
         "y": 8
       },
-      "hiddenSeries": false,
-      "id": 15,
-      "interval": "0.1",
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxDataPoints": null,
-      "nullPointMode": "null",
+      "id": 17,
+      "interval": "0.001s",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "8.1.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
       "targets": [
         {
           "exemplar": true,
-          "expr": "max(Queue_current_size)",
-          "format": "time_series",
-          "instant": false,
+          "expr": "sum((flower_events_total{type=\"task-received\",worker=\"celery@green_worker\"}-flower_events_total{type=\"task-received\",worker=\"celery@green_worker\"} offset 30m)) - sum((flower_events_total{type=\"task-succeeded\",worker=\"celery@green_worker\"}-flower_events_total{type=\"task-succeeded\",worker=\"celery@green_worker\"} offset 30m))",
+          "hide": false,
           "interval": "1s",
-          "legendFormat": "Queue_current_size",
-          "queryType": "randomWalk",
+          "legendFormat": "not finished app2",
+          "refId": "F"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum((flower_events_total{type=\"task-received\",worker=\"celery@red_worker\"}-flower_events_total{type=\"task-received\",worker=\"celery@red_worker\"} offset 30m)) - sum(flower_events_total{type=\"task-succeeded\",worker=\"celery@red_worker\"}-flower_events_total{type=\"task-succeeded\",worker=\"celery@red_worker\"} offset 30m)\n",
+          "hide": false,
+          "interval": "1s",
+          "legendFormat": "not finished app1",
           "refId": "A"
-        },
-        {
-          "exemplar": true,
-          "expr": "max(Request_Rate_App1)",
-          "hide": false,
-          "instant": false,
-          "interval": "1s",
-          "legendFormat": "Request_Rate_App1",
-          "refId": "B"
-        },
-        {
-          "exemplar": true,
-          "expr": "max(Request_Rate_App2)",
-          "hide": false,
-          "instant": false,
-          "interval": "1s",
-          "legendFormat": "Request_Rate_App2",
-          "refId": "C"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Queue Length",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "title": "Tasks Not Finished",
+      "type": "timeseries"
     },
     {
       "aliasColors": {},
@@ -451,19 +430,17 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 12,
         "x": 0,
         "y": 16
       },
       "hiddenSeries": false,
-      "id": 2,
-      "interval": "1s",
+      "id": 15,
+      "interval": "0.1",
       "legend": {
         "avg": false,
         "current": false,
-        "hideEmpty": true,
-        "hideZero": true,
         "max": false,
         "min": false,
         "show": true,
@@ -472,7 +449,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [],
+      "maxDataPoints": null,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -485,33 +462,42 @@
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
-      "steppedLine": false,
+      "steppedLine": true,
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum (rate(flask_http_request_total{service=~\".*app.*\"} [10s]))",
+          "expr": "queue_size",
           "format": "time_series",
           "instant": false,
           "interval": "1s",
-          "intervalFactor": 1,
-          "legendFormat": "Average Rate per 10s",
+          "legendFormat": "Queue_current_size max",
+          "queryType": "randomWalk",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "sum by (pod) (\n  sum by (pod, status) (\n    rate(flask_http_request_total{service=~\".*app.*\"} [10s])\n  )\n)",
-          "format": "time_series",
+          "expr": "req_rate_app1",
+          "hide": false,
+          "instant": false,
           "interval": "1s",
-          "intervalFactor": 1,
-          "legendFormat": "{{pod}} Rate per 10s",
+          "legendFormat": "Request_Rate_App1",
           "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "req_rate_app2",
+          "hide": false,
+          "instant": false,
+          "interval": "1s",
+          "legendFormat": "Request_Rate_App2",
+          "refId": "C"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Request rate",
+      "title": "Queue Length",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -527,16 +513,14 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:65",
-          "format": "reqps",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
-          "$$hashKey": "object:66",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -786,10 +770,126 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "interval": "1s",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum (rate(flask_http_request_total{service=~\".*app.*\"} [10s]))",
+          "format": "time_series",
+          "instant": false,
+          "interval": "1s",
+          "intervalFactor": 1,
+          "legendFormat": "Average Rate per 10s",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum by (pod) (\n  sum by (pod, status) (\n    rate(flask_http_request_total{service=~\".*app.*\"} [10s])\n  )\n)",
+          "format": "time_series",
+          "interval": "1s",
+          "intervalFactor": 1,
+          "legendFormat": "{{pod}} Rate per 10s",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum (rate(flask_http_request_total{service=~\".*web.*\"} [10s]))",
+          "hide": false,
+          "interval": "1s",
+          "legendFormat": "Controller Rate per 10s",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Request rate",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:65",
+          "format": "reqps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:66",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 11,
@@ -831,7 +931,7 @@
         },
         {
           "exemplar": true,
-          "expr": "round(sum(increase(flask_http_request_total{service=~\"web.*\"} [30s])))",
+          "expr": "round(sum(increase(flask_http_request_total{service=~\"web.*\",status=\"202\"} [30s])))",
           "hide": false,
           "interval": "",
           "legendFormat": "Total on controller",
@@ -893,7 +993,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 35
+        "y": 41
       },
       "hiddenSeries": false,
       "id": 10,
@@ -1016,5 +1116,5 @@
   "timezone": "",
   "title": "Druidnet dashboard",
   "uid": "j1bbN5tnt",
-  "version": 17
+  "version": 29
 }

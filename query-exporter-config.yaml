@@ -1,0 +1,32 @@
+databases:
+  db1:
+    dsn: postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+
+metrics:
+  queue_length:
+    type: gauge
+    description: Queue Length 
+  request_rate_app1:
+    type: gauge
+    description: Request_Rate_App1
+  request_rate_app2:
+    type: gauge
+    description: Request_Rate_App2
+
+queries:
+  query1:
+    interval: 1
+    databases: [db1]
+    metrics: [queue_length]
+    sql: SELECT queue_size from rates AS queue_length
+  query2:
+    interval: 1
+    databases: [db1]
+    metrics: [request_rate_app1]]
+    sql: SELECT request_rate_app1 from rates AS request_rate_app1
+
+  query3:
+    interval: 1
+    databases: [db1]
+    metrics: [request_rate_app2]
+    sql: SELECT request_rate_app2 from rates AS request_rate_app2

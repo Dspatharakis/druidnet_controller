@@ -34,9 +34,10 @@ def post_once():
     print('Using image: {}'.format(image))
     try:
         # response = requests.post('http://0.0.0.0:5004/tasks', headers=headers, data=data)
-        requests.post(POST_URL, files={"file": open(image, "rb")})
+        response = requests.post(POST_URL, files={"file": open(image, "rb")})
     except requests.exceptions.ConnectionError as err:
         print('Error while trying to post once: {}'.format(err))
+    print (response)
 
 DURATION = float(os.getenv('DURATION', '240.0'))
 REQUESTS_PER_30 = float(os.getenv('REQUESTS_PER_30', '10.0'))
