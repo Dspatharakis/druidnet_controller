@@ -80,15 +80,15 @@ def update_per_interval():
     try:
         data = Rate.query.first()
         time_passed = 1
-        if data.time_passed_since_last_event > 10: 
-            if (length == 0):
-                print ("queue is empty")   
-                data.time_passed_since_last_event = 0 
-                time_passed = 0
+        # if data.time_passed_since_last_event > 0: 
+        if (length == 0):
+            print ("queue is empty")   
+            data.time_passed_since_last_event = 0 
+            time_passed = 0
         req1 = float(os.environ.get("beta1", "0.5")) * data.req_rate_app1 + float(os.environ.get("alpha1", "2"))*(data.time_passed_since_last_event+time_passed)
         req2 = float(os.environ.get("beta2", "0.5")) * data.req_rate_app2 + float(os.environ.get("alpha2", "3"))*(data.time_passed_since_last_event+time_passed)
-        if req1 < 1: req1=1
-        if req2 < 1: req2=1
+        # if req1 < 1: req1=1
+        # if req2 < 1: req2=1
         data.req_rate_app1 = req1
         data.req_rate_app2 = req2
         data.time_passed_since_last_event = data.time_passed_since_last_event + time_passed 
