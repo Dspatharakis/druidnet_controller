@@ -88,7 +88,7 @@ spec:
           image: dspatharakis/controller_druidnet:web
           name: web
           ports:
-            - containerPort: 5000
+            - containerPort: 8000
           resources: {}
       restartPolicy: Always
 status: {}

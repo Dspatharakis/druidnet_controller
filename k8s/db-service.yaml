@@ -1,19 +1,29 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.24.0 (4a2a0458)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: db
   name: db
+  labels:
+    app: db
 spec:
   ports:
-    - name: "5432"
-      port: 5432
-      targetPort: 5432
+  - name: db-port
+    port: 5432
+    nodePort: 30807
+    targetPort: 5432
   selector:
-    io.kompose.service: db
-status:
-  loadBalancer: {}
+    app: db
+  type: NodePort
+# ---
+# kind: ServiceMonitor
+# apiVersion: monitoring.coreos.com/v1
+# metadata:
+#   name: db
+#   labels:
+#     app: db
+# spec:
+#   selector:
+#     matchLabels:
+#       app: db
+#   endpoints:
+#   - port: db-port
+#     interval: 1s

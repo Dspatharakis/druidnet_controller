@@ -19,11 +19,11 @@ spec:
         name: app2 #edge-server-cv
         resources:
           limits:
-            cpu: "4000m"
+            cpu: "1000m"
             memory: "6Gi"
           requests:
-            cpu: "250m"
-            memory: "2Gi"
+            cpu: "1000m"
+            memory: "6Gi"
         env:
         - name: EDGE_SERVER_PORT
           value: '8000'

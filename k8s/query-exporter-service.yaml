@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-exporter
+  labels:
+    app: query-exporter
+spec:
+  ports:
+  - name: query-exporter-port
+    port: 9560
+    nodePort: 30834
+    targetPort: 9560
+  selector:
+    app: query-exporter
+  type: NodePort
+---
+kind: ServiceMonitor
+apiVersion: monitoring.coreos.com/v1
+metadata:
+  name: query-exporter
+  labels:
+    app: query-exporter
+spec:
+  selector:
+    matchLabels:
+      app: query-exporter
+  endpoints:
+  - port: query-exporter-port
+    interval: 1s
+
+

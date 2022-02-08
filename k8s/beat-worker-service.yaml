@@ -13,19 +13,19 @@ spec:
   selector:
     app: beat-worker
   type: NodePort
----
-kind: ServiceMonitor
-apiVersion: monitoring.coreos.com/v1
-metadata:
-  name: beat-worker
-  labels:
-    app: beat-worker
-spec:
-  selector:
-    matchLabels:
-      app: beat-worker
-  endpoints:
-  - port: beat-worker-port
-    interval: 1s
+# ---
+# kind: ServiceMonitor
+# apiVersion: monitoring.coreos.com/v1
+# metadata:
+#   name: beat-worker
+#   labels:
+#     app: beat-worker
+# spec:
+#   selector:
+#     matchLabels:
+#       app: beat-worker
+#   endpoints:
+#   - port: beat-worker-port
+#     interval: 1s
 
 

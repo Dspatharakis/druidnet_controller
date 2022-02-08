@@ -3,30 +3,45 @@ databases:
     dsn: postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
 
 metrics:
-  queue_length:
+  queue_size:
     type: gauge
-    description: Queue Length 
-  request_rate_app1:
+    description: Queue Size 
+  req_rate_app1:
     type: gauge
     description: Request_Rate_App1
-  request_rate_app2:
+  req_rate_app2:
     type: gauge
     description: Request_Rate_App2
+  time_of_experiment:
+    type: gauge
+    description: Time of experiment
+  average_response_time:
+    type: gauge
+    description: average_response_time
 
 queries:
   query1:
     interval: 1
     databases: [db1]
-    metrics: [queue_length]
-    sql: SELECT queue_size from rates AS queue_length
+    metrics: [queue_size]
+    sql: select queue_size from rates as queue_size
   query2:
     interval: 1
     databases: [db1]
-    metrics: [request_rate_app1]]
-    sql: SELECT request_rate_app1 from rates AS request_rate_app1
-
+    metrics: [req_rate_app1]
+    sql: select req_rate_app1 from rates as req_rate_app1
   query3:
     interval: 1
     databases: [db1]
-    metrics: [request_rate_app2]
-    sql: SELECT request_rate_app2 from rates AS request_rate_app2
+    metrics: [req_rate_app2]
+    sql: select req_rate_app2 from rates as req_rate_app2
+  query4:
+    interval: 1
+    databases: [db1]
+    metrics: [time_of_experiment]
+    sql: select time_of_experiment from rates as time_of_experiment
+  query5:
+    interval: 1
+    databases: [db1]
+    metrics: [average_response_time]
+    sql: SELECT average_response_time from rates AS average_response_time

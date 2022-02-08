@@ -17,7 +17,7 @@ if PORT is None:
 
 POST_URL = "http://%s:%s/tasks" % (IP_ADDR, PORT)
 
-IMAGES_PATH = os.getenv('IMAGES_PATH', './images/')
+IMAGES_PATH = os.getenv('IMAGES_PATH', '../images/')
 
 IMAGES = []
 for (dirpath, dirnames, filenames) in os.walk(IMAGES_PATH):

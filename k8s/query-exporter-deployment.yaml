@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: query-exporter
+  labels:
+    app: query-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: query-exporter
+  template:
+    metadata:
+      labels:
+        app: query-exporter
+    spec:
+      containers:
+      - image: dspatharakis/controller_druidnet:query-exporter
+        name: query-exporter
+        ports: 
+        - name: metrics
+          containerPort: 9560
+        resources: {}
+      restartPolicy: Always
+status: {}
+

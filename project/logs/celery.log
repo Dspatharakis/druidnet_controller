@@ -34,3 +34,489 @@ Trying again in 32.00 seconds... (16/100)
 [2022-02-02 14:00:42,108: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
 Trying again in 32.00 seconds... (16/100)
 
+[2022-02-02 14:01:14,136: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:01:14,136: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:01:14,144: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:01:46,174: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:01:46,175: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:01:46,181: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:02:18,214: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:02:18,215: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:02:18,217: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:02:50,251: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:02:50,252: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:02:50,254: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:03:22,295: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:03:22,295: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:03:22,296: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:03:54,333: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:03:54,333: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:03:54,334: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:04:26,370: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:04:26,371: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:04:26,372: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:04:58,410: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:04:58,412: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:04:58,412: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:05:30,451: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:05:30,452: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:05:30,452: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:06:02,486: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:06:02,486: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:06:02,488: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:06:34,518: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:06:34,521: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:06:34,524: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:07:06,557: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:07:06,559: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:07:06,560: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:07:38,591: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:07:38,594: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:07:38,595: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:08:10,631: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:08:10,631: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:08:10,632: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:08:42,665: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:08:42,668: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:08:42,668: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:09:14,708: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:09:14,708: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:09:14,709: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:09:46,746: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:09:46,747: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:09:46,749: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:10:18,784: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:10:18,785: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:10:18,788: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:10:50,823: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:10:50,827: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:10:50,828: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:11:22,863: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:11:22,865: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:11:22,865: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:11:54,899: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:11:54,900: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:11:54,900: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:12:26,936: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:12:26,938: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:12:26,939: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:12:58,975: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:12:58,976: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:12:58,977: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:13:31,019: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:13:31,020: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:13:31,021: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:14:03,061: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:14:03,065: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:14:03,065: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:14:35,093: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:14:35,101: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:14:35,102: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:15:07,131: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:15:07,136: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:15:07,142: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:15:39,164: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:15:39,170: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:15:39,178: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:16:11,200: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:16:11,208: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:16:11,213: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:16:43,238: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:16:43,247: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:16:43,251: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:17:15,275: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:17:15,286: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:17:15,287: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:17:47,309: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:17:47,322: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:17:47,323: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:18:19,342: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:18:19,356: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:18:19,356: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:18:51,381: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:18:51,392: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:18:51,393: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:19:23,423: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:19:23,432: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:19:23,432: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:19:55,459: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:19:55,471: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:19:55,471: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:20:27,498: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:20:27,507: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:20:27,509: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:20:59,531: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:20:59,540: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:20:59,543: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:21:31,566: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:21:31,574: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:21:31,578: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:22:03,606: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:22:03,612: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:22:03,613: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:22:35,644: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:22:35,649: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:22:35,650: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:23:07,680: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:23:07,685: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:23:07,685: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:23:39,711: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:23:39,717: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:23:39,718: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:24:11,743: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:24:11,752: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:24:11,755: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:24:43,779: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:24:43,790: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:24:43,791: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:25:15,815: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:25:15,827: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:25:15,829: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:25:47,849: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:25:47,863: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:25:47,864: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:26:19,882: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:26:19,895: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:26:19,898: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:26:51,915: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:26:51,931: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:26:51,933: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:27:23,947: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:27:23,966: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:27:23,968: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:27:55,986: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:27:56,002: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:27:56,006: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:28:28,019: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:28:28,038: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:28:28,041: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:29:00,057: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:29:00,073: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:29:00,076: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:29:32,092: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:29:32,112: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+
+[2022-02-02 14:29:32,113: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 32.00 seconds... (16/100)
+

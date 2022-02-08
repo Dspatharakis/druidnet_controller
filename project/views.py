@@ -27,9 +27,7 @@ def run_task():
     id = json.loads(json_util.dumps(userDoc.id))
     img_id = str(id.get('$oid'))
     print (img_id)
-    task = create_task_queue.delay(img_id)
-    while task.state not in ('SUCCESS', 'FAILURE'):
-        time.sleep(0.1)
+    task = create_task_queue.delay(img_id, start_time)
     return jsonify({"task_id": id}), 202
 
 @main_blueprint.route("/tasks/<task_id>", methods=["GET"])
